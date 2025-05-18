@@ -1,0 +1,46 @@
+<!-- Antetul paginii cu titlul "Login" -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Conținutul paginii cu o formă de login -->
+<ion-content class="ion-padding">
+  <!-- Formular HTML care va apela metoda login() la submit -->
+  <form (ngSubmit)="login()">
+    
+    <!-- Câmp pentru email cu etichetă plutitoare -->
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <!-- 
+        ion-input este componenta Ionic pentru input.
+        type="email" ajută la validare și la tastatura mobilă să fie potrivită.
+        [(ngModel)]="email" face legătura bidirecțională cu variabila email din componenta TS.
+        name="email" este necesar pentru ngModel.
+        required marchează câmpul ca obligatoriu. 
+      -->
+      <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+    </ion-item>
+
+    <!-- Câmp pentru parolă cu etichetă plutitoare -->
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <!-- 
+        type="password" ascunde caracterele introduse.
+        Binding bidirecțional cu variabila password.
+      -->
+      <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
+    </ion-item>
+
+    <!-- Buton de submit, va declanșa evenimentul ngSubmit al formularului -->
+    <ion-button expand="block" type="submit" style="margin-top: 20px;">
+      Login
+    </ion-button>
+  </form>
+
+  <!-- Buton care duce spre pagina de înregistrare, fără stil solid -->
+  <ion-button expand="block" fill="clear" routerLink="/register" style="margin-top: 10px;">
+    Create an account
+  </ion-button>
+</ion-content>
