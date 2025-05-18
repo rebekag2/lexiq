@@ -1,0 +1,7 @@
+{
+  "name": "LexIQ",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
