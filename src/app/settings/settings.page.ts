@@ -10,10 +10,17 @@ import { Router } from '@angular/router';
 })
 export class SettingsPage {
 
+    selectedDifficulty: 'low' | 'medium' | 'high' = 'medium'; // default
+
  constructor(
     private afAuth: AngularFireAuth, // pentru autentificare
     private router: Router // pentru a redirecționa utilizatorul
   ) {}
+
+   selectDifficulty(level: 'low' | 'medium' | 'high') {
+    this.selectedDifficulty = level;
+    // Save setting or do additional logic here
+  }
 
   // Funcția care deloghează utilizatorul
   logout() {

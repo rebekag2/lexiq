@@ -1,20 +1,47 @@
-<ion-header [translucent]="true">
-  <ion-toolbar  color="transparent">
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header>
+  <ion-toolbar  class="custom-toolbar">
+    <ion-buttons slot="end">
+      <ion-button class="setting" routerLink="/settings">
+        <ion-icon name="settings-outline"  slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="home-content">
+      <div class="home-title">
+        <h1>What do you feel like today?</h1>
+      </div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+      <div class="card-container"> 
+        <ion-card class="game-card synonyms-card" (click)="goToSynonyms()">
+          <ion-card-header>
+            <ion-card-title><h1>Synonym Match</h1></ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Test your vocabulary
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card class="game-card antonyms-card" (click)="goToAntonyms()">
+          <ion-card-header>
+            <ion-card-title><h1>Antonym Crack</h1></ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Find the opposites
+          </ion-card-content>
+        </ion-card>
+      </div>
+
+      <ion-button class="saved-words-button" expand="block"  routerLink="/saved-words">
+        View Saved Words
+      </ion-button>
+
+
+
   </div>
-</ion-content>
+
+
+</ion-content> 
+   

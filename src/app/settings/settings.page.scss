@@ -1,0 +1,99 @@
+ion-header,
+ion-toolbar {
+  --background: transparent;
+  --border-width: 0;
+  --border-color: transparent;
+  box-shadow: none;
+}
+
+.custom-toolbar {
+  min-height: 8vh; /* Remove -- for regular CSS */
+  display: flex;
+  align-items: center;
+}
+
+ion-toolbar ion-button {
+    font-size: 1rem;
+    --padding: 0.5rem 0.7rem;
+   --color:white;
+}
+
+
+.settings-title {
+    margin: 2rem 1.5rem 1rem; 
+}
+ 
+.settings-title h1 {
+  font-size: 2.3rem;
+  font-weight: 600;
+  color:white;
+}
+
+ .logout {
+    margin-top: 2rem;
+    --border-radius: 1rem;
+    --background: transparent;
+    font-size: 1rem;
+
+    padding: 2% 4%;
+    --border-width: 2px;
+    --border-style: solid;
+    --border-color: hsl(255, 80%, 30%);
+    --color:hsl(255, 80%, 30%);
+    filter:drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+
+
+}
+
+
+.settings-content {
+  padding: 2rem 1rem;
+}
+
+.logout-button {
+  margin-top: 3rem;
+  border-radius: 1rem;
+
+}
+
+
+
+.difficulty-section {
+  background-color: #B9B8FF;
+  padding: 1.5rem 1rem;
+  margin: 2rem 1rem;
+  border-radius: 1rem;
+  max-width: 600px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+.difficulty-label {
+  font-weight: 600;
+  font-size:1.5rem;
+  color: hsl(255, 80%, 55%);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.difficulty-options {
+  display: flex;
+}
+
+.difficulty-btn {
+  flex: 1;
+  --background: white;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: hsl(255, 80%, 55%);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.difficulty-btn:hover {
+  --background: #e0dfff;
+}
+
+.difficulty-btn.selected {
+  --background: #8360ED;
+  color: white;
+}

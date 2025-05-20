@@ -1,0 +1,60 @@
+ion-header,
+ion-toolbar {
+  --background: transparent;
+  --border-width: 0;
+  --border-color: transparent;
+  box-shadow: none;
+}
+
+.custom-toolbar {
+  min-height: 8vh; /* Remove -- for regular CSS */
+  display: flex;
+  align-items: center;
+}
+
+ion-toolbar ion-button {
+    font-size: 1rem;
+    --padding: 0.5rem 0.7rem;
+   --color:white;
+}
+
+
+
+.word-details-content {
+  background-color: #1a1a2e; // Dark background for contrast
+  padding: 2rem 1.5rem;
+  color: white;
+}
+
+.word-details-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.word-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.detail-item {
+  padding:0rem 2rem;
+}
+
+.label {
+  font-weight: 700;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.value {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: white;
+}

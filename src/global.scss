@@ -36,9 +36,25 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+
 /* global.scss */
 
 ion-content {
   --background: linear-gradient(to bottom, #A78BFA, #93C5FD) !important;
+}
+
+body {
+  font-family : 'Poppins', sans-sarif;
+}
+
+:host {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
 }
 

@@ -1,13 +1,31 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>saved-words</ion-title>
+<ion-header>
+  <ion-toolbar class="custom-toolbar">
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home">
+        <ion-icon name="chevron-back-outline" slot="start"></ion-icon>
+        Home
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">saved-words</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="saved-words-content" [fullscreen]="true">
+    <div class="settings-title">
+      <h1>Saved Words</h1>
+    </div> 
+
+        <div class="saved-words-list">
+          <div *ngFor="let word of savedWords; let i = index" class="saved-word-item">
+            <span class="word-text">{{ word }}</span>
+
+            <ion-button fill="clear" class="details-button" [routerLink]="['/word-details']" [queryParams]="{ word: word, from: 'saved' }">
+              Details &gt;
+            </ion-button>
+
+            <ion-button fill="clear" class="delete-button" (click)="deleteWord(i)">
+              <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+            </ion-button>
+          </div>
+        </div>
 </ion-content>
+  
