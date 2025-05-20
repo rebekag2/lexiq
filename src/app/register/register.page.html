@@ -1,38 +1,34 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Register</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+   <div class="container">
+    <h1 >
+      Create Account
+    </h1>
+    <!-- Formularul de înregistrare -->
+    <form (submit)="register()">
+      <!-- Câmpul pentru nume -->
+      <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input type="text" [(ngModel)]="name" name="name" required></ion-input>
+      </ion-item>
 
-<ion-content class="ion-padding">
-  <!-- Formularul de înregistrare -->
-  <form (submit)="register()">
-    <!-- Câmpul pentru nume -->
-    <ion-item>
-      <ion-label position="floating">Name</ion-label>
-      <ion-input type="text" [(ngModel)]="name" name="name" required></ion-input>
-    </ion-item>
+      <!-- Câmpul pentru email -->
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+      </ion-item>
 
-    <!-- Câmpul pentru email -->
-    <ion-item>
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
-    </ion-item>
+      <!-- Câmpul pentru parolă -->
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
+      </ion-item>
 
-    <!-- Câmpul pentru parolă -->
-    <ion-item>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
-    </ion-item>
+      <!-- Butonul de înregistrare -->
+      <ion-button expand="block" type="submit">
+        Sign Up
+      </ion-button>
 
-    <!-- Butonul de înregistrare -->
-    <ion-button expand="block" type="submit" class="ion-margin-top">
-      Register
-    </ion-button>
-
-    <!-- Link către pagina de login, dacă utilizatorul are deja cont -->
-    <ion-button fill="clear" expand="block" [routerLink]="['/login']">
-      Already have an account? Login
-    </ion-button>
-  </form>
+       <p> Back to <a routerLink="/login">Login</a> ?</p>
+    </form>
+  </div>
 </ion-content>
