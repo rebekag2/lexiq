@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 
@@ -8,18 +8,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./settings.page.scss'],
   standalone: false,
 })
-export class SettingsPage {
+export class SettingsPage  implements OnInit {
 
     selectedDifficulty: 'low' | 'medium' | 'high' = 'medium'; // default
 
  constructor(
     private afAuth: AngularFireAuth, // pentru autentificare
-    private router: Router // pentru a redirecționa utilizatorul
+    private router: Router // pentru a redirecționa utilizatorul 
   ) {}
+  
+  ngOnInit(): void {
+    const saved = localStorage.getItem('difficulty');
+      if (saved === 'low' || saved === 'medium' || saved === 'high') {
+        this.selectedDifficulty = saved;
+      } 
+  }
 
    selectDifficulty(level: 'low' | 'medium' | 'high') {
     this.selectedDifficulty = level;
-    // Save setting or do additional logic here
+    localStorage.setItem('difficulty', level);// Save difficulty
   }
 
   // Funcția care deloghează utilizatorul

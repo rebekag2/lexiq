@@ -12,7 +12,7 @@
 
 <ion-content [fullscreen]="true">
   <div class="reward-wrapper">
-    <span class="reward-text">*word*</span>
+    <span class="reward-text">{{ word }}</span>
     <ion-button fill="clear" class="save-button" (click)="toggleSave()">
       <ion-icon 
         [name]="isSaved ? 'bookmark' : 'bookmark-outline'" 
@@ -26,14 +26,18 @@
     <ion-card 
       class="option-card" 
       *ngFor="let option of options" 
-      (click)="selectOption(option)">
-      {{ option.text }}
+      (click)="selectOption(option)"
+      [ngClass]="{
+        'correct': selectedOptionId === option.id && option.text === correctAnswer,
+        'wrong': selectedOptionId === option.id && option.text !== correctAnswer
+      }">
+  {{ option.text }}
     </ion-card>
   </div>
 
   <hr class="separator-line" />
 
-  <div class="view-details" [routerLink]="['/word-details']" [queryParams]="{ from: 'play' }" role="button" tabindex="0">
+  <div class="view-details" [routerLink]="['/word-details']" [queryParams]="{ from: 'play', word: word, type: type}" role="button" tabindex="0">
     <ion-icon name="eye-outline"></ion-icon>
     <span>View Word Details</span>
   </div>

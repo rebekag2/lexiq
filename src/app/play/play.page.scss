@@ -25,14 +25,14 @@ ion-toolbar ion-button {
   justify-content: center;
   gap: 1.5rem;
   margin-top: 3rem;
-  margin-left: 10%;
+  // margin-left: 10%;
   user-select: none;
 }
 
 .reward-text {
   color: white;
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 2rem;
   white-space: nowrap;
 }
 
@@ -108,4 +108,29 @@ ion-toolbar ion-button {
     outline: 2px solid #6a3dbf;
     outline-offset: 3px;
   }
+}
+
+
+
+.option-card {
+  margin: 12px;
+  transition: border 0.3s ease;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.option-card.correct {
+  border: 3px solid #00ff08; 
+  background-color: #e6f4ea;
+
+}
+
+
+.option-card.wrong {
+  border: 3px solid #f71000; 
+  background-color: #fbeaea;
+
 }

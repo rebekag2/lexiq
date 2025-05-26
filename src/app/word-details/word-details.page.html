@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar class="custom-toolbar">
     <ion-buttons slot="start">
       <ion-button (click)="goBack()">
@@ -22,5 +22,38 @@
       <span class="label">Idk:</span>
       <span class="value">{{ wordDetails?.idk }}</span>
     </div>
+  </div>
+</ion-content>
+  -->
+
+<ion-header>
+  <ion-toolbar class="custom-toolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="chevron-back-outline" slot="start"></ion-icon>
+        {{ backButtonLabel }}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="word-details-content" fullscreen>
+  <div class="word-details-wrapper">
+<h1 class="word-title">{{ word }}</h1>
+
+<div class="detail-item" *ngIf="synonyms?.length">
+  <span class="label">Synonyms:</span>
+  <span class="value">{{ synonyms.join(', ') }}</span>
+</div>
+
+<div class="detail-item" *ngIf="antonyms?.length">
+  <span class="label">Antonyms:</span>
+  <span class="value">{{ antonyms.join(', ') }}</span>
+</div>
+
+<div class="detail-item" *ngIf="pronunciation">
+  <span class="label">Pronunciation:</span>
+  <span class="value">{{ pronunciation }}</span>
+</div>
   </div>
 </ion-content>

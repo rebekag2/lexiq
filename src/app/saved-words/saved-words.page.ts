@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   standalone: false,
 })
 export class SavedWordsPage implements OnInit {
- savedWords: string[] = ["gfghftfgg","gfgfgtfgg"]; // bind your saved words here later
+ savedWords: string[] = ["happy","gfgfgtfgg"]; // bind your saved words here later
 
   constructor() {}
 
