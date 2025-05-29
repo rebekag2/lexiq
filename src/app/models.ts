@@ -11,3 +11,10 @@ export interface WordDetails {
     antonyms?: string[];
   }>;
 }
+
+
+export interface SavedWord {
+  word: string;
+  pair: string; // the synonym or antonym
+  type: 'synonym' | 'antonym'; 
+}

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { WordService } from '../services/word.service'; // adjust path if needed
+import { SavedWord } from '../models';
 
 @Component({
   selector: 'app-saved-words',
@@ -6,18 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./saved-words.page.scss'],
   standalone: false,
 })
-export class SavedWordsPage implements OnInit {
- savedWords: string[] = ["happy","gfgfgtfgg"]; // bind your saved words here later
+export class SavedWordsPage {
+  savedWords: SavedWord[] = [];
 
-  constructor() {}
+  constructor(private wordService: WordService) {}
 
-  ngOnInit() {
-    // Load saved words from localStorage or service here later
+  ionViewWillEnter() {
+    this.savedWords = this.wordService.getSavedWords();
   }
 
   deleteWord(index: number) {
-    // Remove the word from the array & update localStorage later
+    const wordToRemove = this.savedWords[index];
+    // Pass type as well when removing word
+    this.wordService.removeWord(wordToRemove.word, wordToRemove.pair, wordToRemove.type);
     this.savedWords.splice(index, 1);
   }
 }
- 

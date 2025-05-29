@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RandomWordResponse, WordDetails } from '../models';
+import { RandomWordResponse, WordDetails, SavedWord } from '../models';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -40,5 +40,38 @@ export class WordService {
     return this.http.get(`${this.apiUrl}/${word}/pronunciation`, { headers: this.headers });
   }
 
+
+  private readonly STORAGE_KEY = 'savedWords';
+ saveWord(savedWord: SavedWord) {
+  const current = this.getSavedWords();
+  const exists = current.some(w => 
+    w.word === savedWord.word &&
+    w.pair === savedWord.pair &&
+    w.type === savedWord.type
+  );
+
+  if (!exists) {
+    current.push(savedWord);
+    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(current));
+  }
+}
+
+removeWord(word: string, pair: string, type: 'synonym' | 'antonym') {
+  const current = this.getSavedWords();
+  const filtered = current.filter(w => !(w.word === word && w.pair === pair && w.type === type));
+  localStorage.setItem(this.STORAGE_KEY, JSON.stringify(filtered));
+}
+
+ getSavedWords(): SavedWord[] {
+  const saved = localStorage.getItem(this.STORAGE_KEY);
+  console.log("saved words:", saved);
+  return saved ? JSON.parse(saved) : [];
+
+}
+
+isWordSaved(word: string, pair: string, type: 'synonym' | 'antonym'): boolean {
+  const saved = this.getSavedWords();
+  return saved.some(w => w.word === word && w.pair === pair && w.type === type);
+}
 }
 
