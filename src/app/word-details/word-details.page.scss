@@ -7,7 +7,7 @@ ion-toolbar {
 }
 
 .custom-toolbar {
-  min-height: 8vh; /* Remove -- for regular CSS */
+  min-height: 8vh;
   display: flex;
   align-items: center;
   padding: 2rem 1rem;
@@ -22,7 +22,7 @@ ion-toolbar ion-button {
 
 
 .word-details-content {
-  background-color: #1a1a2e; // Dark background for contrast
+  background-color: #1a1a2e; 
   padding: 2rem 1.5rem;
   color: white;
 }

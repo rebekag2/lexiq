@@ -1,10 +1,8 @@
+//pagina de LogIn
+
 import { Component } from '@angular/core';
-
 import { AngularFireAuth } from '@angular/fire/compat/auth';  
-// Importăm serviciul AngularFireAuth care ne ajută să facem autentificare cu Firebase
-
 import { Router } from '@angular/router';  
-// Importăm Router pentru a putea face navigare programatică după login
 
 @Component({
   selector: 'app-login',
@@ -20,18 +18,19 @@ export class LoginPage {
   constructor(private afAuth: AngularFireAuth, private router: Router) { }  
 
   login() {  
+
     if (!this.email || !this.password) {  
       alert('Please enter email and password');  
       return;
     }
 
+   //verifica daca userul exista si parola e corecta
     this.afAuth.signInWithEmailAndPassword(this.email, this.password)  
-    //this.afAuth.signInWithEmailAndPassword(email, password) este metoda Firebase care verifică dacă userul există și parola e corectă.
 
-    //then se execută dacă login-ul a fost OK, iar catch dacă a fost o problemă (email greșit, parolă greșită, user inexistent etc).
+    //then se executa daca login-ul a fost OK, iar catch daca a fost o problema (email gresit, parola gresita, user inexistent etc).
       .then(userCredential => {  
-        // Dacă loginul reușește, primim userCredential
-
+        // Daca loginul reuseste, primim userCredential
+        
         console.log('Login successful', userCredential);  
         this.router.navigate(['/home']);  
       })

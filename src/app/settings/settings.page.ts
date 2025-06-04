@@ -10,11 +10,11 @@ import { Router } from '@angular/router';
 })
 export class SettingsPage  implements OnInit {
 
-    selectedDifficulty: 'low' | 'medium' | 'high' = 'medium'; // default
+    selectedDifficulty: 'low' | 'medium' | 'high' = 'medium'; 
 
  constructor(
     private afAuth: AngularFireAuth, // pentru autentificare
-    private router: Router // pentru a redirecționa utilizatorul 
+    private router: Router // pentru a redirectiona utilizatorul 
   ) {}
   
   ngOnInit(): void {
@@ -26,13 +26,11 @@ export class SettingsPage  implements OnInit {
 
    selectDifficulty(level: 'low' | 'medium' | 'high') {
     this.selectedDifficulty = level;
-    localStorage.setItem('difficulty', level);// Save difficulty
+    localStorage.setItem('difficulty', level); 
   }
 
-  // Funcția care deloghează utilizatorul
   logout() {
     this.afAuth.signOut().then(() => {
-      // după ce se deloghează cu succes, îl redirecționăm la pagina de login
       this.router.navigate(['/login']);
     });
   }

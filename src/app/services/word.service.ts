@@ -8,13 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class WordService {
-
-  // private apiUrl = 'https://wordsapiv1.p.rapidapi.com/words';
-  //  private headers = new HttpHeaders({
-  //   'X-RapidAPI-Key': 'e8b92db9aamshbd324178500a0e6p13a940jsna24451a8b4b9',
-  //   'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com',
-  // });
-
+  
   private apiUrl = 'https://wordsapiv1.p.rapidapi.com/words';
 
   private headers = new HttpHeaders({

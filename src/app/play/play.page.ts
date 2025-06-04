@@ -13,14 +13,14 @@ import { Network } from '@capacitor/network';
 export class PlayPage implements OnInit {
 
   isSaved = false; 
-  selectedDifficulty: 'low' | 'medium' | 'high' = 'medium'; // will get from settings later
+  selectedDifficulty: 'low' | 'medium' | 'high' = 'medium';
 
   options: Array<{ id: number, text: string }> = [];
   word: string = '';
   synonyms: string[] = [];
   antonyms: string[] = [];
   pronunciation: string = '';
-  type: 'synonym' | 'antonym' | null = null; // strict typing
+  type: 'synonym' | 'antonym' | null = null;
 
   selectedOptionId: number | null = null;
   correctAnswer: string = '';
@@ -35,7 +35,7 @@ export class PlayPage implements OnInit {
       this.isOffline = !status.connected;
       console.log("offline:", this.isOffline);
 
-      this.startLoadingWord(); // ⬅️ Moved here so it runs after we know online/offline
+      this.startLoadingWord(); 
     });
 
     Network.addListener('networkStatusChange', (status) => {
@@ -50,9 +50,9 @@ export class PlayPage implements OnInit {
   }
 
     startLoadingWord() {
-       // Then get the query param and load the word accordingly
+      
       this.route.queryParams.subscribe((params) => {
-      this.type = params['type'] === 'antonym' ? 'antonym' : 'synonym'; // default to synonym if unknown
+      this.type = params['type'] === 'antonym' ? 'antonym' : 'synonym';
       console.log("type in play page:", this.type);
 
       
@@ -65,7 +65,6 @@ export class PlayPage implements OnInit {
    
     }
 
-  // Fetch synonym word (online or offline)
   fetchWordWithSynonym() {
     if (this.isOffline) {
       this.loadFromSaved('synonym');
@@ -81,13 +80,12 @@ export class PlayPage implements OnInit {
           this.createOptions(correct);
           this.isSaved = this.wordService.isWordSaved(this.word, correct, 'synonym');
         } else {
-          this.fetchWordWithSynonym(); // retry if no synonyms
+          this.fetchWordWithSynonym(); 
         }
       });
     });
   }
 
-  // Fetch antonym word (online or offline)
   fetchWordWithAntonym() {
     if (this.isOffline) {
       this.loadFromSaved('antonym');
@@ -109,7 +107,7 @@ export class PlayPage implements OnInit {
     });
   }
 
-  // Load word & options from saved words when offline, filtered by type
+
   loadFromSaved(type: 'synonym' | 'antonym') {
     const saved = this.wordService.getSavedWords();
 
@@ -118,8 +116,8 @@ export class PlayPage implements OnInit {
 
     if (filtered.length === 0) {
       alert('No saved words available for offline mode.');
-      // Optional: fallback to online if user comes online later
       return;
+
     }
 
     // Pick a random saved word of the correct type
@@ -191,7 +189,6 @@ export class PlayPage implements OnInit {
 
   selectOption(option: { id: number, text: string }) {
     console.log("selecte doption:", option.text);
-    // if (!this.isOptionSelectable) return;
 
     this.selectedOptionId = option.id;
     this.isOptionSelectable = false;
@@ -216,7 +213,6 @@ export class PlayPage implements OnInit {
     this.isSaved = !this.isSaved;
 
     if (this.isSaved && this.word && this.correctAnswer && this.type) {
-      // Save word with type info
       this.wordService.saveWord({ word: this.word, pair: this.correctAnswer, type: this.type });
     } else if (this.word && this.correctAnswer && this.type) {
       this.wordService.removeWord(this.word, this.correctAnswer, this.type);

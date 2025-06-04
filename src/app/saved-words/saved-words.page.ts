@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WordService } from '../services/word.service'; // adjust path if needed
+import { WordService } from '../services/word.service'; 
 import { SavedWord } from '../models';
 
 @Component({
@@ -19,7 +19,6 @@ export class SavedWordsPage {
 
   deleteWord(index: number) {
     const wordToRemove = this.savedWords[index];
-    // Pass type as well when removing word
     this.wordService.removeWord(wordToRemove.word, wordToRemove.pair, wordToRemove.type);
     this.savedWords.splice(index, 1);
   }

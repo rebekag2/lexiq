@@ -11,7 +11,7 @@ export class AuthGuard implements CanActivate {
   constructor(private afAuth: AngularFireAuth, private router: Router) {}
 
   canActivate() {
-    return this.afAuth.authState.pipe( //authState e un Observable care ține evidența utilizatorului logat
+    return this.afAuth.authState.pipe( //authState e un Observable care tine evidenta utilizatorului logat
       take(1),
       map(user => {
         if (user) {

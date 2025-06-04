@@ -13,20 +13,17 @@ export class AppComponent {
 
   constructor(
     private platform: Platform,
-    private afAuth: AngularFireAuth, // Folosim acest serviciu ca să verificăm dacă userul este logat
-    private router: Router // Pentru a redirecționa către pagina potrivită
+    private afAuth: AngularFireAuth, // Folosim acest serviciu ca să verificam daca userul este logat
+    private router: Router // Pentru a redirectiona catre pagina potrivita
   ) {
     this.initializeApp();
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // Această funcție rulează când aplicația este gata
 
-      // Ne abonăm la starea de autentificare (se emite ori de câte ori se schimbă)
        this.afAuth.authState.subscribe(user => {
-      // De exemplu, poți salva userul într-un serviciu sau variabilă locală
-      // Dar nu mai face router.navigate aici!
+
       console.log('User logged in:', user);
       });
     });

@@ -32,17 +32,6 @@ export class WordDetailsPage implements OnInit {
       this.backButtonLabel = 'Back';
     }
     
-    //getting passed word from url and  getting its details
-    // this.route.queryParams.subscribe(params => {
-    //   this.word = params['word'] ;
-    //    if(this.word) {
-    //     this.wordService.getWordDetails(this.word).subscribe( data => {
-    //       this.wordDetails = data;
-    //       console.log("details:",this.wordDetails);
-    //     });
-    //    }
-    // });
-
       //getting passed word from url and  getting its details
       this.route.queryParams.subscribe(params => {
         this.word = params['word'] ;

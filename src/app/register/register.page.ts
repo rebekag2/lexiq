@@ -23,12 +23,13 @@ export class RegisterPage  {
     return;
   }
 
-  this.afAuth.createUserWithEmailAndPassword(this.email, this.password)//createUserWithEmailAndPassword creează un user nou în Firebase Authentication.
+  this.afAuth.createUserWithEmailAndPassword(this.email, this.password)//createUserWithEmailAndPassword creeaza un user nou in Firebase Authentication.
     .then(userCredential => {
       console.log('Registration successful', userCredential);
-      // Opțional: putem salva numele userului în profilul Firebase
-      userCredential.user?.updateProfile({ displayName: this.name }); //Dacă totul e OK, poți seta numele cu updateProfile.
-      this.router.navigate(['/home']); // După înregistrare, trimitem userul la Home
+
+      //putem salva numele userului in profilul Firebase
+      userCredential.user?.updateProfile({ displayName: this.name }); //Daca totul e OK, poti seta numele cu updateProfile.
+      this.router.navigate(['/home']); // Dupa inregistrare, trimitem userul la Home
     })
     .catch(error => {
       console.error('Registration error', error);

@@ -1,23 +1,20 @@
-
 .container {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;  // Vertical centering
-  align-items: center;      // Horizontal centering
+  justify-content: center;  
+  align-items: center;     
   padding: 1.5rem;
 
   position:relative;
   bottom:  10%;
 
   h1 {
-    // outline:2px dashed black;
     font-size: 4rem;
     font-weight: 700;
     text-align: left;
     margin-bottom: 2rem;
     max-width:25rem;
-
   }
 
   form {
@@ -26,21 +23,21 @@
   }
 
   ion-item {
- --background: transparent; /* no box or background */
-  --border-width: 0 0 2px 0; /* underline only */
+ --background: transparent;
+  --border-width: 0 0 2px 0; 
   --border-style: solid;
-  --border-color: #ececec; /* light gray underline */
+  --border-color: #ececec; 
   --padding-start: 0;
   --padding-end: 0;
   margin-bottom: 24px;
-  border-radius: 0; /* no round on whole item */
+  border-radius: 0;
   box-shadow: none;
   transition: border-color 0.3s ease;
   }
 
 
   ion-label {
-  color: #ffffff; /* lighter label color */
+  color: #ffffff;
   font-weight: 500;
   font-size: 1rem;
   }
@@ -48,7 +45,7 @@
 ion-input {
   font-size: 1.3rem;
   font-weight: 600;
-  background: transparent; /* no background */
+  background: transparent;
 }
 
 

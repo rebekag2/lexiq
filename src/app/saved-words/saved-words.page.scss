@@ -7,7 +7,7 @@ ion-toolbar {
 }
 
 .custom-toolbar {
-  min-height: 8vh; /* Remove -- for regular CSS */
+  min-height: 8vh; 
   display: flex;
   align-items: center;
   padding: 2rem 1rem;
@@ -65,13 +65,13 @@ ion-toolbar ion-button {
 }
 
 .details-button {
-  --color: hsl(275, 70%, 40%); /* lighter purple */
+  --color: hsl(275, 70%, 40%); 
   font-weight: 600;
   font-size: 1rem;
   margin-right: 1rem;
 }
 
 .delete-button ion-icon {
-  color: #ff0022; /* bright purple */
+  color: #ff0022;
   font-size: 1.4rem;
 }

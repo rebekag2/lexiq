@@ -1,3 +1,4 @@
+//contine configuratii pentru Firebase si alte setar ( ex. detalii pt API)
 
 export const environment = {
   production: true,
