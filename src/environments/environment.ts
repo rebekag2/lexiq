@@ -1,4 +1,4 @@
-//contine configuratii pentru Firebase si alte setar ( ex. detalii pt API)
+//contine configuratii pentru Firebase si alte setari ( ex. detalii pt API)
 
 export const environment = {
   production: false,
@@ -12,4 +12,4 @@ export const environment = {
   },
   wordsApiHost: 'wordsapiv1.p.rapidapi.com',
   wordsApiKey: 'e8b92db9aamshbd324178500a0e6p13a940jsna24451a8b4b9'
-};
+}; 

@@ -54,7 +54,6 @@ export class PlayPage implements OnInit {
       this.route.queryParams.subscribe((params) => {
       this.type = params['type'] === 'antonym' ? 'antonym' : 'synonym';
       console.log("type in play page:", this.type);
-
       
         if (this.type === 'synonym') {
           this.fetchWordWithSynonym();
@@ -62,7 +61,6 @@ export class PlayPage implements OnInit {
           this.fetchWordWithAntonym();
         }
       });
-   
     }
 
   fetchWordWithSynonym() {
@@ -188,7 +186,7 @@ export class PlayPage implements OnInit {
   }
 
   selectOption(option: { id: number, text: string }) {
-    console.log("selecte doption:", option.text);
+    console.log("selected option:", option.text);
 
     this.selectedOptionId = option.id;
     this.isOptionSelectable = false;

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RandomWordResponse, WordDetails, SavedWord } from '../models';
+import { WordDetails, SavedWord, SynonymResponse, AntonymResponse, RandomWordResponse, PronunciationResponse } from '../models';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -17,23 +17,21 @@ export class WordService {
   });
   constructor(private http: HttpClient) { }
 
+getRandomWord(): Observable<RandomWordResponse> {
+  return this.http.get<RandomWordResponse>(`${this.apiUrl}/?random=true`, { headers: this.headers });
+}
 
- getRandomWord(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/?random=true`, { headers: this.headers });
-  }
+getWordSynonyms(word: string): Observable<SynonymResponse> {
+  return this.http.get<SynonymResponse>(`${this.apiUrl}/${word}/synonyms`, { headers: this.headers });
+}
 
-  getWordSynonyms(word: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/${word}/synonyms`, { headers: this.headers });
-  }
+getWordAntonyms(word: string): Observable<AntonymResponse> {
+  return this.http.get<AntonymResponse>(`${this.apiUrl}/${word}/antonyms`, { headers: this.headers });
+}
 
-  getWordAntonyms(word: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/${word}/antonyms`, { headers: this.headers });
-  }
-
-  getWordPronunciation(word: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/${word}/pronunciation`, { headers: this.headers });
-  }
-
+getWordPronunciation(word: string): Observable<PronunciationResponse> {
+  return this.http.get<PronunciationResponse>(`${this.apiUrl}/${word}/pronunciation`, { headers: this.headers });
+}
 
   private readonly STORAGE_KEY = 'savedWords';
  saveWord(savedWord: SavedWord) {
